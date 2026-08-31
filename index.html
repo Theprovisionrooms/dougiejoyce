@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joyce's Irish Whiskey | Death Before Dishonour</title>
+<meta name="description" content="Joyce's Irish Whiskey. Premium Irish whiskey from the house of Joyce. Death before dishonour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Rye&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="kicker">JOYCE'S IRISH WHISKEY &nbsp;·&nbsp; EST. 2022</div>
+      <h1>Death before <span class="hook">dishonour.</span></h1>
+      <p>Crafted to premium standards and carried by a name that has never once backed down. A smooth, rich Irish whiskey with a story worth pouring.</p>
+      <div>
+        <a href="/shop.html" class="btn">Discover the range</a>
+        <a href="/story.html" class="btn btn-ghost">Our story</a>
+      </div>
+    </div>
+
+    <div class="viewer-card">
+      <div class="viewer-stage" id="stage">
+        <div class="bottle" id="bottle">
+          <div class="bottle-neck"></div>
+          <div class="bottle-face"></div>
+          <div class="bottle-label">
+            <div class="lbl-brand">Joyce's</div>
+            <div class="lbl-sub">IRISH WHISKEY</div>
+          </div>
+        </div>
+      </div>
+      <div class="viewer-hint">Drag to rotate</div>
+      <div class="viewer-note">Placeholder viewer, swap in real 360 photography frames on build</div>
+    </div>
+  </div>
+</section>
+
+<div class="rule wrap"></div>
+
+<section>
+  <div class="wrap heritage">
+    <div>
+      <div class="eyebrow-plain">Our story</div>
+      <h2>Joyce's Country to your glass.</h2>
+    </div>
+    <div>
+      <p>A history that runs through Connacht and the Irish Traveller community, poured into a whiskey made to premium standards, smooth enough for a first taste and rich enough for a connoisseur to notice the difference.</p>
+      <a href="/story.html" class="btn btn-ghost" style="display:inline-block;">Read the full story</a>
+    </div>
+  </div>
+</section>
+
+<section class="founder">
+  <div class="wrap">
+    <div class="founder-portrait">Founder portrait</div>
+    <div>
+      <div class="eyebrow-plain">The founder</div>
+      <h2>Dougie Joyce</h2>
+      <p>Built on a reputation earned long before the first bottle, in the ring and in business. Every decision on this whiskey, from the label to the taste, went through him first.</p>
+      <div class="sign">— Dougie Joyce</div>
+      <a href="/founder.html" class="btn btn-ghost" style="display:inline-block;margin-top:8px;">More on Dougie</a>
+    </div>
+  </div>
+</section>
+
+<div class="rule wrap"></div>
+
+<section class="ventures">
+  <div class="wrap">
+    <h2>Elsewhere</h2>
+    <div class="venture-grid">
+      <div class="venture-card">
+        <h3>3D Fight Club</h3>
+        <p>The bare-knuckle boxing promotion behind the name, built the same way as everything else.</p>
+        <a class="link" href="https://www.3dfightclubofficial.com/" target="_blank" rel="noopener">Visit 3DFC →</a>
+      </div>
+      <div class="venture-card">
+        <h3>DJ Gym Wear</h3>
+        <p>Training kit built for people who don't do things by half.</p>
+        <a class="link" href="https://www.instagram.com/dj_gym_wear" target="_blank" rel="noopener">Visit on Instagram →</a>
+      </div>
+      <div class="venture-card">
+        <h3>Follow along</h3>
+        <p>The man behind the bottle, on socials.</p>
+        <a class="link" href="/socials.html">All socials →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="wrap news-inner">
+    <div>
+      <h2>Join the list.</h2>
+      <p>First word on new releases, small batches, and whatever comes next.</p>
+    </div>
+    <form class="news-form" onsubmit="return false;">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit" class="btn">Sign up</button>
+    </form>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="/partials.js"></script>
+<script>
+  const stage = document.getElementById('stage');
+  const bottle = document.getElementById('bottle');
+  let isDragging = false;
+  let startX = 0;
+  let rotation = -18;
+  bottle.style.transform = `rotateY(${rotation}deg)`;
+
+  function pointerDown(x){ isDragging = true; startX = x; stage.style.cursor='grabbing'; }
+  function pointerMove(x){
+    if(!isDragging) return;
+    const delta = x - startX;
+    rotation += delta * 0.4;
+    bottle.style.transform = `rotateY(${rotation}deg)`;
+    startX = x;
+  }
+  function pointerUp(){ isDragging = false; stage.style.cursor='grab'; }
+
+  stage.addEventListener('mousedown', e => pointerDown(e.clientX));
+  window.addEventListener('mousemove', e => pointerMove(e.clientX));
+  window.addEventListener('mouseup', pointerUp);
+
+  stage.addEventListener('touchstart', e => pointerDown(e.touches[0].clientX), {passive:true});
+  window.addEventListener('touchmove', e => pointerMove(e.touches[0].clientX), {passive:true});
+  window.addEventListener('touchend', pointerUp);
+
+  let auto = true;
+  function idleSpin(){
+    if(!isDragging && auto){ rotation += 0.08; bottle.style.transform = `rotateY(${rotation}deg)`; }
+    requestAnimationFrame(idleSpin);
+  }
+  stage.addEventListener('mousedown', ()=> auto=false);
+  stage.addEventListener('touchstart', ()=> auto=false);
+  idleSpin();
+</script>
+
+</body>
+</html>
