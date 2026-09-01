@@ -21,30 +21,83 @@
   </div>
 </section>
 
-<section>
-  <div class="wrap shop-grid">
-    <div class="product-card">
-      <div class="product-thumb">Product photo</div>
-      <h3>Joyce's Irish Whiskey | Original</h3>
-      <div class="price">£00.00</div>
-      <a href="#" class="btn" style="width:100%;text-align:center;">Add to cart</a>
+<section class="case" style="--glow-color: rgba(169,99,30,0.24);">
+  <div class="case-glow"></div>
+  <div class="wrap case-inner">
+    <div class="case-eyebrow">Signature</div>
+    <div class="case-stage" data-stage>
+      <div class="case-bottle variant-original" data-bottle>
+        <div class="bottle-neck"></div>
+        <div class="bottle-face"></div>
+        <div class="bottle-label">
+          <div class="lbl-brand">Joyce's</div>
+          <div class="lbl-sub">IRISH WHISKEY</div>
+          <div class="lbl-variant">TRIPLE DISTILLED · DOUBLE CASKED</div>
+        </div>
+      </div>
     </div>
-    <div class="product-card">
-      <div class="product-thumb">Product photo</div>
-      <h3>Joyce's Irish Whiskey | Small Batch</h3>
-      <div class="price">£00.00</div>
-      <a href="#" class="btn" style="width:100%;text-align:center;">Add to cart</a>
+    <div class="case-hint">Drag to rotate</div>
+    <div class="case-note">Placeholder viewer, swap in real 3D model on build</div>
+    <h2 class="case-name">Joyce's Irish Whiskey</h2>
+    <p class="case-tag">Our signature Irish whiskey, smooth enough for a first taste and rich enough for a connoisseur to notice the difference.</p>
+    <div class="case-price">£00.00</div>
+    <a href="#" class="btn">Add to cart</a>
+  </div>
+</section>
+
+<section class="case" style="--glow-color: rgba(230,120,30,0.26);">
+  <div class="case-glow"></div>
+  <div class="wrap case-inner">
+    <div class="case-eyebrow">New</div>
+    <div class="case-stage" data-stage>
+      <div class="case-bottle variant-orange" data-bottle>
+        <div class="bottle-neck"></div>
+        <div class="bottle-face"></div>
+        <div class="bottle-label">
+          <div class="lbl-brand">Joyce's</div>
+          <div class="lbl-sub">ORANGE IRISH WHISKEY</div>
+          <div class="lbl-variant">TRIPLE DISTILLED · DOUBLE CASKED</div>
+        </div>
+      </div>
     </div>
-    <div class="product-card">
-      <div class="product-thumb">Product photo</div>
-      <h3>Joyce's Irish Whiskey | Gift Set</h3>
-      <div class="price">£00.00</div>
-      <a href="#" class="btn" style="width:100%;text-align:center;">Add to cart</a>
-    </div>
+    <div class="case-hint">Drag to rotate</div>
+    <div class="case-note">Placeholder viewer, swap in real 3D model on build</div>
+    <h2 class="case-name">Orange Joyce's Irish Whiskey</h2>
+    <p class="case-tag">A distinctive orange flavour brought into the Joyce's range, built on the same premium standard as the original.</p>
+    <div class="case-price">£00.00</div>
+    <a href="#" class="btn">Add to cart</a>
   </div>
 </section>
 
 <div id="site-footer"></div>
 <script src="/partials.js"></script>
+<script>
+document.querySelectorAll('[data-stage]').forEach(function(stage){
+  const bottle = stage.querySelector('[data-bottle]');
+  let isDragging = false, startX = 0, rotation = -18, auto = true;
+  bottle.style.transform = `rotateY(${rotation}deg)`;
+
+  function pointerDown(x){ isDragging = true; auto = false; startX = x; stage.style.cursor = 'grabbing'; }
+  function pointerMove(x){
+    if(!isDragging) return;
+    rotation += (x - startX) * 0.4;
+    bottle.style.transform = `rotateY(${rotation}deg)`;
+    startX = x;
+  }
+  function pointerUp(){ isDragging = false; stage.style.cursor = 'grab'; }
+
+  stage.addEventListener('mousedown', e => pointerDown(e.clientX));
+  window.addEventListener('mousemove', e => pointerMove(e.clientX));
+  window.addEventListener('mouseup', pointerUp);
+  stage.addEventListener('touchstart', e => pointerDown(e.touches[0].clientX), {passive:true});
+  window.addEventListener('touchmove', e => pointerMove(e.touches[0].clientX), {passive:true});
+  window.addEventListener('touchend', pointerUp);
+
+  (function idleSpin(){
+    if(!isDragging && auto){ rotation += 0.08; bottle.style.transform = `rotateY(${rotation}deg)`; }
+    requestAnimationFrame(idleSpin);
+  })();
+});
+</script>
 </body>
 </html>

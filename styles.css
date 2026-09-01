@@ -249,7 +249,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;}
 .longform{max-width:70ch;}
 .longform p{color:rgba(239,231,214,0.75);margin-bottom:22px;}
 
-/* SHOP GRID */
+/* SHOP GRID (legacy, unused after display-case redesign) */
 .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;}
 @media(max-width:900px){.shop-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.shop-grid{grid-template-columns:1fr;}}
@@ -264,6 +264,83 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;}
 }
 .product-card h3{font-size:1.1rem;margin-bottom:6px;}
 .product-card .price{color:var(--whiskey-light);font-size:0.9rem;margin-bottom:16px;}
+
+/* SHOP — DISPLAY CASES */
+.case{
+  position:relative;
+  padding:110px 0;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.case:last-of-type{border-bottom:none;}
+.case-glow{
+  position:absolute;inset:0;
+  pointer-events:none;
+  background:radial-gradient(ellipse 900px 620px at 50% 38%, var(--glow-color, rgba(169,99,30,0.22)), transparent 65%);
+}
+.case-inner{
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.case-eyebrow{color:var(--whiskey-light);font-size:0.85rem;margin-bottom:10px;}
+.case-stage{
+  width:100%;
+  max-width:520px;
+  height:min(64vh, 640px);
+  display:flex;align-items:center;justify-content:center;
+  perspective:1100px;
+  cursor:grab;
+  user-select:none;
+  touch-action:none;
+  margin-bottom:36px;
+}
+.case-stage:active{cursor:grabbing;}
+.case-bottle{
+  width:min(30vw, 260px);
+  height:min(66vh, 600px);
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform 0.05s linear;
+}
+.case-bottle .bottle-face{
+  position:absolute;inset:0;
+  border-radius:20px 20px 8px 8px;
+  box-shadow: inset 0 0 70px rgba(0,0,0,0.55), 0 40px 90px rgba(0,0,0,0.5);
+}
+.case-bottle.variant-original .bottle-face{
+  background:linear-gradient(100deg, #7a4419 0%, #C98A3E 18%, #8a4f1c 40%, #5c3212 60%, #C98A3E 80%, #7a4419 100%);
+}
+.case-bottle.variant-orange .bottle-face{
+  background:linear-gradient(100deg, #A6420B 0%, #E8862E 18%, #B85416 40%, #7A340B 60%, #E8862E 80%, #A6420B 100%);
+}
+.case-bottle .bottle-neck{
+  position:absolute;top:-72px;left:50%;transform:translateX(-50%);
+  width:74px;height:88px;
+  border-radius:8px 8px 3px 3px;
+}
+.case-bottle.variant-original .bottle-neck{
+  background:linear-gradient(100deg, #7a4419, #C98A3E, #5c3212);
+}
+.case-bottle.variant-orange .bottle-neck{
+  background:linear-gradient(100deg, #A6420B, #E8862E, #7A340B);
+}
+.case-bottle .bottle-label{
+  position:absolute;top:190px;left:22px;right:22px;
+  height:200px;
+  background:rgba(239,231,214,0.95);
+  color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:16px;
+  border:1px solid rgba(0,0,0,0.15);
+}
+.case-bottle .bottle-label .lbl-brand{font-family:'Rye',serif;font-weight:400;font-size:1.6rem;}
+.case-bottle .bottle-label .lbl-sub{font-size:0.85rem;letter-spacing:0.14em;margin-top:10px;opacity:0.75;}
+.case-bottle .bottle-label .lbl-variant{font-size:0.7rem;letter-spacing:0.1em;margin-top:14px;color:var(--whiskey);}
+.case-hint{font-size:0.78rem;color:rgba(239,231,214,0.45);margin-bottom:4px;letter-spacing:0.03em;}
+.case-note{font-size:0.72rem;color:rgba(239,231,214,0.3);margin-bottom:40px;}
+.case-name{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:16px;}
+.case-tag{color:rgba(239,231,214,0.65);max-width:48ch;margin-bottom:26px;}
+.case-price{font-size:1.3rem;color:var(--whiskey-light);margin-bottom:30px;font-family:'Fraunces',serif;}
 
 /* FAQ */
 .faq-item{border-bottom:1px solid var(--line);padding:26px 0;}
