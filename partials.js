@@ -50,6 +50,9 @@ const SITE_FOOTER = `
       <span>© 2026 Joyce's Irish Whiskey. Intellectual property of Sidedoor Digital.</span>
       <span>Please drink responsibly.</span>
     </div>
+    <div class="foot-bottom" style="border-top:none;padding-top:0;">
+      <span>Built by <a href="https://www.getsidedoor.co.uk" target="_blank" rel="noopener" style="color:rgba(239,231,214,0.55);text-decoration:underline;">Sidedoor Digital</a></span>
+    </div>
   </div>
 </footer>
 `;
