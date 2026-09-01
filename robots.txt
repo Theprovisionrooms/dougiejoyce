@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /age-gate
 
 Sitemap: https://jiwhiskey.co.uk/sitemap.xml
