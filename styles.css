@@ -401,9 +401,9 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;}
   color:rgba(239,231,214,0.32);
   font-size:0.78rem;
   letter-spacing:0.04em;
-  padding:24px;
   overflow:hidden;
 }
+.inv-media:not(:has(img)){padding:24px;}
 .inv-media img{width:100%;height:100%;object-fit:cover;display:block;}
 .inv-list{list-style:none;margin-top:26px;}
 .inv-list li{padding-left:24px;position:relative;margin-bottom:20px;}
