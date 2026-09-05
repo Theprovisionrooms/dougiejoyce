@@ -368,3 +368,60 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;}
 }
 .contact-form input:focus, .contact-form textarea:focus{outline:none;border-color:var(--gold);}
 .contact-details a{display:block;margin-bottom:14px;color:rgba(239,231,214,0.85);}
+
+/* INVESTMENT PAGE */
+.inv-banner{
+  background:rgba(185,146,66,0.08);
+  border:1px solid rgba(185,146,66,0.35);
+  color:rgba(239,231,214,0.8);
+  font-size:0.82rem;
+  letter-spacing:0.03em;
+  padding:14px 22px;
+  margin-bottom:10px;
+}
+.inv-section{border-bottom:1px solid var(--line);padding:90px 0;}
+.inv-section:last-of-type{border-bottom:none;}
+.inv-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:70px;align-items:center;}
+.inv-grid.reverse{grid-template-columns:1.15fr 0.85fr;}
+.inv-grid.reverse .inv-media{order:2;}
+@media(max-width:900px){
+  .inv-grid, .inv-grid.reverse{grid-template-columns:1fr;}
+  .inv-grid.reverse .inv-media{order:0;}
+}
+.inv-media{
+  aspect-ratio:4/5;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(169,99,30,0.18), transparent 65%),
+    linear-gradient(160deg, #1a140d, #100D0A 70%);
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:rgba(239,231,214,0.32);
+  font-size:0.78rem;
+  letter-spacing:0.04em;
+  padding:24px;
+  overflow:hidden;
+}
+.inv-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.inv-list{list-style:none;margin-top:26px;}
+.inv-list li{padding-left:24px;position:relative;margin-bottom:20px;}
+.inv-list li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--whiskey-light);}
+.inv-list h4{font-size:0.95rem;color:var(--parchment);margin-bottom:5px;font-family:'Work Sans',sans-serif;font-weight:500;}
+.inv-list p{font-size:0.88rem;color:rgba(239,231,214,0.62);margin:0;}
+.inv-numbered{list-style:none;margin-top:30px;display:grid;gap:26px;}
+.inv-numbered li{display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:start;}
+.inv-numbered .num{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--whiskey-light);}
+.inv-numbered h4{font-size:0.95rem;margin-bottom:4px;font-family:'Work Sans',sans-serif;font-weight:500;letter-spacing:0.03em;}
+.inv-numbered p{font-size:0.88rem;color:rgba(239,231,214,0.62);margin:0;}
+.inv-note{
+  margin-top:40px;
+  padding-top:30px;
+  border-top:1px solid var(--line);
+}
+.inv-note h4{font-size:0.85rem;color:var(--whiskey-light);letter-spacing:0.05em;margin-bottom:10px;}
+.inv-note p{font-size:0.9rem;color:rgba(239,231,214,0.7);max-width:60ch;}
+.inv-cta{text-align:center;padding:100px 0;}
+.inv-cta h2{font-size:clamp(2rem,4.5vw,2.8rem);margin-bottom:20px;}
+.inv-cta p{max-width:52ch;margin:0 auto 34px;color:rgba(239,231,214,0.68);}
