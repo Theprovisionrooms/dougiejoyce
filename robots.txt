@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jiwhiskey.co.uk/sitemap.xml
+Sitemap: https://www.jiwhiskey.co.uk/sitemap.xml

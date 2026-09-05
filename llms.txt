@@ -1,19 +1,19 @@
-# Joyce's Irish Whiskey
+# JIWhiskey
 
 > Premium Irish whiskey, triple distilled and double casked, from the house of Joyce. Death before dishonour.
 
-Joyce's Irish Whiskey is a premium Irish whiskey brand founded in 2022 by Dougie Joyce, founder of 3D Fight Club (bare-knuckle boxing) and DJ Gym Wear. The whiskey is triple distilled, double casked, 40% ABV, bottled at 700ml, distilled, matured and bottled in Ireland. The brand traces its name to the Joyce family of Connacht, one of the Tribes of Galway, and to the Irish Traveller community. The range includes the signature Joyce's Irish Whiskey and Orange Joyce's Irish Whiskey.
+JIWhiskey is a premium Irish whiskey brand founded in 2022 by Dougie Joyce, founder of 3D Fight Club (bare-knuckle boxing) and DJ Gym Wear. The whiskey is triple distilled, double casked, 40% ABV, bottled at 700ml, distilled, matured and bottled in Ireland. The brand traces its name to the Joyce family of Connacht, one of the Tribes of Galway, and to the Irish Traveller community. The range includes the signature JIWhiskey Classic and JIWhiskey Orange.
 
 ## Pages
 
-- [Home](https://jiwhiskey.co.uk/index.html): Brand overview and hero
-- [Our Story](https://jiwhiskey.co.uk/story.html): Joyce family and Irish Traveller heritage
-- [Founder](https://jiwhiskey.co.uk/founder.html): About Dougie Joyce
-- [Shop](https://jiwhiskey.co.uk/shop.html): Product range
-- [FAQ](https://jiwhiskey.co.uk/faq.html): Shipping, production, returns, trade orders, range
-- [Delivery & Returns](https://jiwhiskey.co.uk/delivery-returns.html): Shipping, returns, and terms
-- [Socials](https://jiwhiskey.co.uk/socials.html): Social channels
-- [Contact](https://jiwhiskey.co.uk/contact.html): Get in touch
+- [Home](https://www.jiwhiskey.co.uk/index.html): Brand overview and hero
+- [Our Story](https://www.jiwhiskey.co.uk/story.html): Joyce family and Irish Traveller heritage
+- [Founder](https://www.jiwhiskey.co.uk/founder.html): About Dougie Joyce
+- [Shop](https://www.jiwhiskey.co.uk/shop.html): Product range
+- [FAQ](https://www.jiwhiskey.co.uk/faq.html): Shipping, production, returns, trade orders, range
+- [Delivery & Returns](https://www.jiwhiskey.co.uk/delivery-returns.html): Shipping, returns, and terms
+- [Socials](https://www.jiwhiskey.co.uk/socials.html): Social channels
+- [Contact](https://www.jiwhiskey.co.uk/contact.html): Get in touch
 
 ## Notes
 

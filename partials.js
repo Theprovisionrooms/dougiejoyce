@@ -1,10 +1,10 @@
-// Shared header + footer for Joyce's Irish Whiskey site
-// Edit nav links, footer content, and socials here once — every page picks it up.
+// Shared header + footer for JIWhiskey site
+// Edit nav links, footer content, and socials here once - every page picks it up.
 
 const SITE_HEADER = `
 <header>
   <nav class="wrap">
-    <a href="/" class="brand">JOYCE'S</a>
+    <a href="/" class="brand">JIWHISKEY</a>
     <div class="navlinks">
       <a href="/story.html">Story</a>
       <a href="/founder.html">Founder</a>
@@ -22,7 +22,7 @@ const SITE_FOOTER = `
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-col">
-        <h4>JOYCE'S IRISH WHISKEY</h4>
+        <h4>JIWHISKEY</h4>
         <p style="max-width:32ch;">Death before dishonour. Premium Irish whiskey from the house of Joyce.</p>
         <p class="age-note">This site and its products are intended for those aged 18 and over.</p>
       </div>
@@ -47,7 +47,7 @@ const SITE_FOOTER = `
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Joyce's Irish Whiskey. Intellectual property of Sidedoor Digital.</span>
+      <span>© 2026 JIWhiskey. Intellectual property of Sidedoor Digital.</span>
       <span>Please drink responsibly.</span>
     </div>
     <div class="foot-bottom" style="border-top:none;padding-top:0;">
@@ -61,7 +61,7 @@ const SITE_FOOTER = `
 const AGE_GATE = `
 <div id="age-gate" class="age-gate">
   <div class="age-gate-box">
-    <div class="brand" style="margin-bottom:18px;">JOYCE'S</div>
+    <div class="brand" style="margin-bottom:18px;">JIWHISKEY</div>
     <p>You must be 18 or over to enter this site.</p>
     <div class="age-gate-actions">
       <button id="age-yes" class="btn">I am 18 or older</button>
