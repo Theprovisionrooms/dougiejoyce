@@ -26,19 +26,19 @@
   <div class="case-glow"></div>
   <div class="wrap case-inner">
     <div class="case-eyebrow">Signature</div>
-    <div class="case-stage" data-stage>
-      <div class="case-bottle variant-original" data-bottle>
-        <div class="bottle-neck"></div>
-        <div class="bottle-face"></div>
-        <div class="bottle-label">
-          <div class="lbl-brand">Joyce's</div>
-          <div class="lbl-sub">IRISH WHISKEY</div>
-          <div class="lbl-variant">TRIPLE DISTILLED · DOUBLE CASKED</div>
-        </div>
-      </div>
-    </div>
+    <model-viewer
+      src="/assets/models/bottle-original.glb"
+      alt="Joyce's Irish Whiskey bottle"
+      camera-controls
+      auto-rotate
+      auto-rotate-delay="0"
+      rotation-per-second="20deg"
+      interaction-prompt="none"
+      shadow-intensity="1"
+      camera-orbit="0deg 75deg 105%"
+      style="width: 100%; height: 420px;">
+    </model-viewer>
     <div class="case-hint">Drag to rotate</div>
-    <div class="case-note">Placeholder viewer, swap in real 3D model on build</div>
     <h2 class="case-name">Joyce's Irish Whiskey</h2>
     <p class="case-tag">Our signature Irish whiskey, smooth enough for a first taste and rich enough for a connoisseur to notice the difference.</p>
     <div class="case-price">£00.00</div>
@@ -72,33 +72,5 @@
 
 <div id="site-footer"></div>
 <script src="/partials.js"></script>
-<script>
-document.querySelectorAll('[data-stage]').forEach(function(stage){
-  const bottle = stage.querySelector('[data-bottle]');
-  let isDragging = false, startX = 0, rotation = -18, auto = true;
-  bottle.style.transform = `rotateY(${rotation}deg)`;
-
-  function pointerDown(x){ isDragging = true; auto = false; startX = x; stage.style.cursor = 'grabbing'; }
-  function pointerMove(x){
-    if(!isDragging) return;
-    rotation += (x - startX) * 0.4;
-    bottle.style.transform = `rotateY(${rotation}deg)`;
-    startX = x;
-  }
-  function pointerUp(){ isDragging = false; stage.style.cursor = 'grab'; }
-
-  stage.addEventListener('mousedown', e => pointerDown(e.clientX));
-  window.addEventListener('mousemove', e => pointerMove(e.clientX));
-  window.addEventListener('mouseup', pointerUp);
-  stage.addEventListener('touchstart', e => pointerDown(e.touches[0].clientX), {passive:true});
-  window.addEventListener('touchmove', e => pointerMove(e.touches[0].clientX), {passive:true});
-  window.addEventListener('touchend', pointerUp);
-
-  (function idleSpin(){
-    if(!isDragging && auto){ rotation += 0.08; bottle.style.transform = `rotateY(${rotation}deg)`; }
-    requestAnimationFrame(idleSpin);
-  })();
-});
-</script>
 </body>
 </html>
