@@ -9,7 +9,7 @@ const SITE_HEADER = `
       <a href="/story.html">Story</a>
       <a href="/founder.html">Founder</a>
       <a href="/shop.html">Shop</a>
-      <a href="/videos.html">Videos</a>
+      <!-- Videos link pulled from nav until footage is live, re-add: <a href="/videos.html">Videos</a> -->
       <a href="/faq.html">FAQ</a>
       <a href="/contact.html">Contact</a>
     </div>
@@ -22,7 +22,7 @@ const SITE_HEADER = `
     <a href="/story.html">Story</a>
     <a href="/founder.html">Founder</a>
     <a href="/shop.html">Shop</a>
-    <a href="/videos.html">Videos</a>
+    <!-- Videos link pulled from nav until footage is live, re-add: <a href="/videos.html">Videos</a> -->
     <a href="/faq.html">FAQ</a>
     <a href="/contact.html">Contact</a>
     <a href="/shop.html" class="btn" style="margin-top:10px;text-align:center;">Shop the range</a>
@@ -42,7 +42,7 @@ const SITE_FOOTER = `
       <div class="foot-col">
         <h4>SHOP</h4>
         <a href="/shop.html">The range</a>
-        <a href="/videos.html">Videos</a>
+        <!-- Videos link pulled from footer until footage is live, re-add: <a href="/videos.html">Videos</a> -->
         <a href="/faq.html">FAQ</a>
         <a href="/delivery-returns.html">Delivery &amp; returns</a>
       </div>

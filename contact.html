@@ -89,7 +89,7 @@
       });
       var data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
-      status.textContent = "Thanks — your message is in. We'll be in touch shortly.";
+      status.textContent = "Thanks, your message is in. We'll be in touch shortly.";
       status.style.color = '#8fbf8f';
       status.style.display = 'block';
       form.reset();

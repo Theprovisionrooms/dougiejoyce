@@ -19,7 +19,7 @@
     overflow-x:hidden;
     position:relative;
   }
-  /* Fine film-grain overlay — reads as premium print texture rather than flat digital black */
+  /* Fine film-grain overlay, reads as premium print texture rather than flat digital black */
   body::before{
     content:'';
     position:fixed;inset:0;
@@ -328,7 +328,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;}
 .product-card h3{font-size:1.1rem;margin-bottom:6px;}
 .product-card .price{color:var(--whiskey-light);font-size:0.9rem;margin-bottom:16px;}
 
-/* SHOP — DISPLAY CASES */
+/* SHOP - DISPLAY CASES */
 .case{
   position:relative;
   padding:110px 0;

@@ -4,7 +4,7 @@
 // command" so it happens automatically on every deploy.
 //
 // Usage: just drop a video file into assets/videos/ (any of the extensions below),
-// commit it, push. Nothing else to touch — the title shown on the site is worked
+// commit it, push. Nothing else to touch. The title shown on the site is worked
 // out from the filename, so name the file something sensible
 // (e.g. "dougie-ring-walkout.mp4" -> "Dougie ring walkout").
 

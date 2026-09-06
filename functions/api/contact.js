@@ -14,7 +14,7 @@ export async function onRequestPost(context) {
     return json({ error: 'Invalid request body.' }, 400);
   }
 
-  // Honeypot — bots fill every field, humans never see this one.
+  // Honeypot: bots fill every field, humans never see this one.
   if (body._gotcha) {
     return json({ ok: true });
   }
@@ -43,7 +43,7 @@ export async function onRequestPost(context) {
       from: env.FROM_EMAIL,
       to: env.NOTIFY_EMAIL,
       reply_to: email,
-      subject: `New enquiry via jiwhiskey.co.uk — ${name}`,
+      subject: `New enquiry via jiwhiskey.co.uk - ${name}`,
       html: `
         <p><strong>Name:</strong> ${escape(name)}</p>
         <p><strong>Email:</strong> ${escape(email)}</p>

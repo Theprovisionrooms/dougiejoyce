@@ -96,7 +96,7 @@ async function sendOrderEmails(session, env) {
       customerEmail,
       'Your JIWhiskey order is confirmed',
       `<p>Death before dishonour.</p>
-       <p>Thanks for your order — here's your confirmation.</p>
+       <p>Thanks for your order. Here's your confirmation.</p>
        <p><strong>Total:</strong> ${currency} ${amount}</p>
        <p>We'll be in touch with dispatch details shortly.</p>`
     );
@@ -105,7 +105,7 @@ async function sendOrderEmails(session, env) {
   if (env.NOTIFY_EMAIL) {
     await sendEmail(
       env.NOTIFY_EMAIL,
-      `New order — ${product} (${currency} ${amount})`,
+      `New order - ${product} (${currency} ${amount})`,
       `<p>New checkout completed.</p>
        <p><strong>Product:</strong> ${product}</p>
        <p><strong>Total:</strong> ${currency} ${amount}</p>

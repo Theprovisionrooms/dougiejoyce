@@ -158,7 +158,7 @@
     <div class="case-eyebrow">Bundle</div>
     <div class="case-stage-wrap">
     <div class="case-media" style="width:100%;max-width:340px;margin:0 auto 10px;border-radius:6px;overflow:hidden;border:1px solid rgba(185,146,66,0.35);box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.4);">
-      <img src="/assets/img/classic-box-of-6.jpg" alt="JIWhiskey Classic, box of 6" style="width:100%;height:auto;display:block;">
+      <img src="/assets/img/classic-box-of-6.png" alt="JIWhiskey Classic, box of 6" style="width:100%;height:auto;display:block;">
     </div>
     </div>
     <h2 class="case-name">JIWhiskey Classic: Box of 6</h2>
@@ -172,10 +172,18 @@
 <script src="/partials.js"></script>
 <script>
   document.querySelectorAll('.checkout-btn').forEach(function (btn) {
+    // Reuse a status line per card instead of a browser alert() so failures
+    // read like part of the site rather than a broken popup.
+    var status = document.createElement('p');
+    status.className = 'checkout-status';
+    status.style.cssText = 'margin-top:12px;font-size:0.82rem;display:none;';
+    btn.insertAdjacentElement('afterend', status);
+
     btn.addEventListener('click', async function () {
       var original = btn.textContent;
       btn.disabled = true;
-      btn.textContent = 'Loading…';
+      btn.textContent = 'Loading...';
+      status.style.display = 'none';
       try {
         var res = await fetch('/api/create-checkout-session', {
           method: 'POST',
@@ -191,7 +199,9 @@
       } catch (err) {
         btn.disabled = false;
         btn.textContent = original;
-        alert("Sorry, checkout isn't available right now. Please try again shortly.");
+        status.textContent = "Sorry, checkout isn't available right now. Please try again shortly.";
+        status.style.color = '#c96a5c';
+        status.style.display = 'block';
       }
     });
   });

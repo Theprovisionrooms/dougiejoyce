@@ -8,19 +8,19 @@ const PRODUCTS = {
     name: "JIWhiskey Classic",
     description: "70cl · 40% ABV · Triple distilled, double casked",
     amount: 4999, // pence
-    image: "https://www.jiwhiskey.co.uk/assets/img/classic-box-of-6.jpg"
+    image: "https://www.jiwhiskey.co.uk/assets/img/classic-box-of-6.png"
   },
   orange: {
     name: "JIWhiskey Orange (Preorder)",
     description: "70cl · 40% ABV · New orange flavour release",
     amount: 5999,
-    image: "https://www.jiwhiskey.co.uk/assets/img/classic-box-of-6.jpg"
+    image: "https://www.jiwhiskey.co.uk/assets/img/classic-box-of-6.png"
   },
   box6: {
     name: "JIWhiskey Classic: Box of 6",
     description: "6 x 70cl bottles",
     amount: 24900,
-    image: "https://www.jiwhiskey.co.uk/assets/img/classic-box-of-6.jpg"
+    image: "https://www.jiwhiskey.co.uk/assets/img/classic-box-of-6.png"
   }
 };
 
