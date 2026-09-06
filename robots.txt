@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /investment.html
 
 Sitemap: https://www.jiwhiskey.co.uk/sitemap.xml

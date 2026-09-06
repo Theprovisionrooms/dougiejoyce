@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos | JIWhiskey</title>
+<meta name="description" content="Watch Dougie Joyce and JIWhiskey in action — from the distillery to the ring.">
+<link rel="canonical" href="https://www.jiwhiskey.co.uk/videos.html">
+<meta property="og:url" content="https://www.jiwhiskey.co.uk/videos.html">
+<link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#100D0A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JIWhiskey">
+<meta property="og:title" content="Videos | JIWhiskey">
+<meta property="og:description" content="Watch Dougie Joyce and JIWhiskey in action — from the distillery to the ring.">
+<meta property="og:image" content="https://www.jiwhiskey.co.uk/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Videos | JIWhiskey">
+<meta name="twitter:description" content="Watch Dougie Joyce and JIWhiskey in action — from the distillery to the ring.">
+<meta name="twitter:image" content="https://www.jiwhiskey.co.uk/assets/img/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Cinzel:wght@400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "JIWhiskey Videos",
+  "url": "https://www.jiwhiskey.co.uk/videos.html",
+  "description": "Videos of Dougie Joyce and JIWhiskey."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow-plain">Videos</div>
+    <h1>See it for yourself.</h1>
+    <p style="max-width:56ch;color:rgba(239,231,214,0.72);margin-top:16px;">Dougie Joyce, the distillery, and the whiskey — straight from the source.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div id="video-grid" class="video-grid"></div>
+    <div id="video-empty" class="video-empty" style="display:none;">
+      New footage is on the way — check back soon.
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="/partials.js"></script>
+<script>
+(async function () {
+  const grid = document.getElementById('video-grid');
+  const empty = document.getElementById('video-empty');
+
+  function formatDate(iso) {
+    try {
+      return new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function escapeHtml(str) {
+    const d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+  }
+
+  function cardHTML(video) {
+    return `
+      <div class="video-card">
+        <div class="video-frame">
+          <video controls preload="metadata" playsinline src="/assets/videos/${encodeURIComponent(video.file)}"></video>
+        </div>
+        <div class="video-meta">
+          <h3>${escapeHtml(video.title)}</h3>
+          <div class="video-date">${formatDate(video.addedAt)}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  try {
+    const res = await fetch('/assets/videos/manifest.json', { cache: 'no-store' });
+    const videos = await res.json();
+
+    if (!Array.isArray(videos) || !videos.length) {
+      empty.style.display = 'block';
+      return;
+    }
+
+    grid.innerHTML = videos.map(cardHTML).join('');
+  } catch (e) {
+    empty.style.display = 'block';
+  }
+})();
+</script>
+</body>
+</html>

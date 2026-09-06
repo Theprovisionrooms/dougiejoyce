@@ -42,16 +42,16 @@
 
 <section>
   <div class="wrap contact-grid">
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="contact-form" id="contact-form">
       <label for="name">Name</label>
       <input id="name" name="name" type="text" required>
       <label for="email">Email</label>
       <input id="email" name="email" type="email" required>
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="5" required></textarea>
-      <input type="hidden" name="_subject" value="New enquiry via jiwhiskey.co.uk">
-      <input type="text" name="_gotcha" style="display:none">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <button type="submit" class="btn">Send message</button>
+      <p id="contact-status" style="margin-top:16px;font-size:0.88rem;display:none;"></p>
     </form>
     <div class="contact-details">
       <div class="eyebrow-plain">Direct</div>
@@ -66,5 +66,42 @@
 
 <div id="site-footer"></div>
 <script src="/partials.js"></script>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    var status = document.getElementById('contact-status');
+    var original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.style.display = 'none';
+    try {
+      var res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.value,
+          email: form.email.value,
+          message: form.message.value,
+          _gotcha: form._gotcha.value
+        })
+      });
+      var data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      status.textContent = "Thanks — your message is in. We'll be in touch shortly.";
+      status.style.color = '#8fbf8f';
+      status.style.display = 'block';
+      form.reset();
+    } catch (err) {
+      status.textContent = err.message;
+      status.style.color = '#c96a5c';
+      status.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = original;
+    }
+  });
+</script>
 </body>
 </html>

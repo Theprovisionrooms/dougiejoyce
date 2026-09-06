@@ -29,6 +29,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Cinzel:wght@400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "JIWhiskey",
+  "url": "https://www.jiwhiskey.co.uk/",
+  "logo": "https://www.jiwhiskey.co.uk/assets/icons/icon-512.png",
+  "foundingDate": "2022",
+  "founder": { "@type": "Person", "name": "Dougie Joyce" },
+  "description": "Premium Irish whiskey, triple distilled and double casked, from the house of Joyce.",
+  "sameAs": [
+    "https://www.instagram.com/dougiejoyce_iam_manchester2023/",
+    "https://www.facebook.com/DougieJoyceOfficial/",
+    "https://www.youtube.com/c/DougieJoyceOfficial"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+44-161-399-8731",
+    "contactType": "customer service"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -130,18 +152,50 @@
       <h2>Join the list.</h2>
       <p>First word on new releases, small batches, and whatever comes next.</p>
     </div>
-    <form class="news-form" action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST">
+    <form class="news-form" id="newsletter-form">
       <input type="email" name="email" placeholder="Your email address" required>
-      <input type="hidden" name="_subject" value="New newsletter signup via jiwhiskey.co.uk">
-      <input type="text" name="_gotcha" style="display:none">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <button type="submit" class="btn">Sign up</button>
     </form>
+    <p id="newsletter-status" style="margin-top:14px;font-size:0.85rem;display:none;"></p>
   </div>
 </section>
 
 <div id="site-footer"></div>
 
 <script src="/partials.js"></script>
+<script>
+  document.getElementById('newsletter-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    var status = document.getElementById('newsletter-status');
+    var original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '…';
+    status.style.display = 'none';
+    try {
+      var res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: form.email.value, _gotcha: form._gotcha.value })
+      });
+      var data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      status.textContent = "You're on the list.";
+      status.style.color = '#8fbf8f';
+      status.style.display = 'block';
+      form.reset();
+    } catch (err) {
+      status.textContent = err.message;
+      status.style.color = '#c96a5c';
+      status.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = original;
+    }
+  });
+</script>
 
 </body>
 </html>
