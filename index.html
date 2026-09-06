@@ -106,8 +106,10 @@
       <h2>Join the list.</h2>
       <p>First word on new releases, small batches, and whatever comes next.</p>
     </div>
-    <form class="news-form" onsubmit="return false;">
-      <input type="email" placeholder="Your email address" required>
+    <form class="news-form" action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required>
+      <input type="hidden" name="_subject" value="New newsletter signup via jiwhiskey.co.uk">
+      <input type="text" name="_gotcha" style="display:none">
       <button type="submit" class="btn">Sign up</button>
     </form>
   </div>

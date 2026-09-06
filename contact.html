@@ -25,13 +25,15 @@
 
 <section>
   <div class="wrap contact-grid">
-    <form class="contact-form" onsubmit="return false;">
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <label for="name">Name</label>
-      <input id="name" type="text" required>
+      <input id="name" name="name" type="text" required>
       <label for="email">Email</label>
-      <input id="email" type="email" required>
+      <input id="email" name="email" type="email" required>
       <label for="message">Message</label>
-      <textarea id="message" rows="5" required></textarea>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <input type="hidden" name="_subject" value="New enquiry via jiwhiskey.co.uk">
+      <input type="text" name="_gotcha" style="display:none">
       <button type="submit" class="btn">Send message</button>
     </form>
     <div class="contact-details">

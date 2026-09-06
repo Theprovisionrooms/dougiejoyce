@@ -91,8 +91,14 @@
     font-size:0.85rem;
     letter-spacing:0.05em;
     transition:background 0.25s, color 0.25s;
+    background:transparent;
+    color:inherit;
+    font-family:inherit;
+    cursor:pointer;
+    border-radius:0;
   }
   .btn:hover{background:var(--gold);color:var(--ink);}
+  .btn:disabled{opacity:0.55;cursor:default;}
   .btn-ghost{border-color:var(--line);margin-left:14px;}
   .btn-ghost:hover{background:var(--parchment);border-color:var(--parchment);}
 

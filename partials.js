@@ -43,7 +43,6 @@ const SITE_FOOTER = `
         <h4>CONTACT</h4>
         <a href="tel:01613998731">0161 399 8731</a>
         <a href="/contact.html">Enquire</a>
-        <a href="https://www.comfortandco.uk/" target="_blank" rel="noopener" style="opacity:0.55;">Comfort &amp; Co</a>
       </div>
     </div>
     <div class="foot-bottom">
