@@ -7,6 +7,23 @@
 <meta name="description" content="Shop the JIWhiskey range.">
 <link rel="canonical" href="https://www.jiwhiskey.co.uk/shop.html">
 <meta property="og:url" content="https://www.jiwhiskey.co.uk/shop.html">
+<link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#100D0A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JIWhiskey">
+<meta property="og:title" content="Shop | JIWhiskey">
+<meta property="og:description" content="Shop the JIWhiskey range.">
+<meta property="og:image" content="https://www.jiwhiskey.co.uk/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shop | JIWhiskey">
+<meta name="twitter:description" content="Shop the JIWhiskey range.">
+<meta name="twitter:image" content="https://www.jiwhiskey.co.uk/assets/img/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Cinzel:wght@400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -28,6 +45,7 @@
   <div class="case-glow"></div>
   <div class="wrap case-inner">
     <div class="case-eyebrow">Classic</div>
+    <div class="case-stage-wrap">
     <model-viewer
       src="/assets/models/bottle-original.glb"
       alt="JIWhiskey bottle"
@@ -36,10 +54,14 @@
       auto-rotate-delay="0"
       rotation-per-second="20deg"
       interaction-prompt="none"
-      shadow-intensity="1"
+      shadow-intensity="1.2"
+      shadow-softness="0.9"
+      exposure="1.1"
+      environment-image="neutral"
       camera-orbit="0deg 75deg 105%"
-      style="width: 100%; height: 420px;">
+      class="case-viewer">
     </model-viewer>
+    </div>
     <div class="case-hint">Drag to rotate</div>
     <h2 class="case-name">JIWhiskey Classic</h2>
     <p class="case-tag">Triple distilled, double casked. Smooth, rich, and built for those who live by the motto. 40% ABV · 70cl. Distilled at The Gaol, County Louth, Ireland.</p>
@@ -52,6 +74,7 @@
   <div class="case-glow"></div>
   <div class="wrap case-inner">
     <div class="case-eyebrow">New · Preorder</div>
+    <div class="case-stage-wrap">
     <model-viewer
       src="/assets/models/bottle-orange.glb"
       alt="JIWhiskey Orange bottle"
@@ -60,10 +83,14 @@
       auto-rotate-delay="0"
       rotation-per-second="20deg"
       interaction-prompt="none"
-      shadow-intensity="1"
+      shadow-intensity="1.2"
+      shadow-softness="0.9"
+      exposure="1.1"
+      environment-image="neutral"
       camera-orbit="0deg 75deg 105%"
-      style="width: 100%; height: 420px;">
+      class="case-viewer">
     </model-viewer>
+    </div>
     <div class="case-hint">Drag to rotate</div>
     <h2 class="case-name">JIWhiskey Orange</h2>
     <p class="case-tag">New orange flavour release. Classic JIWhiskey base with natural orange notes. Bold, smooth, made for mixing or neat. Triple distilled · Double casked · 40% ABV · 70cl.</p>
@@ -76,8 +103,10 @@
   <div class="case-glow"></div>
   <div class="wrap case-inner">
     <div class="case-eyebrow">Bundle</div>
-    <div class="case-media" style="width:100%;max-width:340px;margin:0 auto 10px;border-radius:4px;overflow:hidden;">
+    <div class="case-stage-wrap">
+    <div class="case-media" style="width:100%;max-width:340px;margin:0 auto 10px;border-radius:6px;overflow:hidden;border:1px solid rgba(185,146,66,0.35);box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.4);">
       <img src="/assets/img/classic-box-of-6.jpg" alt="JIWhiskey Classic, box of 6" style="width:100%;height:auto;display:block;">
+    </div>
     </div>
     <h2 class="case-name">JIWhiskey Classic: Box of 6</h2>
     <p class="case-tag">Case of 6 × 70cl bottles. Perfect for sharing, gifting or stocking up. Save versus single bottles. Triple distilled · Double casked · 40% ABV.</p>

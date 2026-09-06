@@ -12,8 +12,19 @@ const SITE_HEADER = `
       <a href="/faq.html">FAQ</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="/shop.html" class="btn" style="padding:10px 22px;font-size:0.78rem;">Shop the range</a>
+    <a href="/shop.html" class="btn nav-cta" style="padding:10px 22px;font-size:0.78rem;">Shop the range</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="/story.html">Story</a>
+    <a href="/founder.html">Founder</a>
+    <a href="/shop.html">Shop</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/shop.html" class="btn" style="margin-top:10px;text-align:center;">Shop the range</a>
+  </div>
 </header>
 `;
 
@@ -75,6 +86,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const footerSlot = document.getElementById('site-footer');
   if (headerSlot) headerSlot.outerHTML = SITE_HEADER;
   if (footerSlot) footerSlot.outerHTML = SITE_FOOTER;
+
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', () => {
+      const open = navMobile.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    navMobile.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        navMobile.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 
   if (!sessionStorage.getItem('jiw_age_verified')) {
     document.body.insertAdjacentHTML('afterbegin', AGE_GATE);
