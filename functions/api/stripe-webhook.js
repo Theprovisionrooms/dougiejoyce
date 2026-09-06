@@ -79,7 +79,10 @@ async function sendOrderEmails(session, env) {
   const customerEmail = session.customer_details?.email;
   const amount = ((session.amount_total || 0) / 100).toFixed(2);
   const currency = (session.currency || 'gbp').toUpperCase();
-  const product = session.metadata?.product || 'order';
+  const cart = parseCart(session.metadata?.cart);
+  const itemsList = cart.length
+    ? `<ul>${cart.map((l) => `<li>${escapeHtml(l.n || l.p)} x ${l.q}</li>`).join('')}</ul>`
+    : '<p>(Item details unavailable. Check the Stripe dashboard for this session.)</p>';
 
   const sendEmail = (to, subject, html) =>
     fetch('https://api.resend.com/emails', {
@@ -97,20 +100,36 @@ async function sendOrderEmails(session, env) {
       'Your JIWhiskey order is confirmed',
       `<p>Death before dishonour.</p>
        <p>Thanks for your order. Here's your confirmation.</p>
+       ${itemsList}
        <p><strong>Total:</strong> ${currency} ${amount}</p>
        <p>We'll be in touch with dispatch details shortly.</p>`
     );
   }
 
   if (env.NOTIFY_EMAIL) {
+    const summary = cart.length ? cart.map((l) => `${l.n || l.p} x${l.q}`).join(', ') : 'order';
     await sendEmail(
       env.NOTIFY_EMAIL,
-      `New order - ${product} (${currency} ${amount})`,
+      `New order - ${summary} (${currency} ${amount})`,
       `<p>New checkout completed.</p>
-       <p><strong>Product:</strong> ${product}</p>
+       ${itemsList}
        <p><strong>Total:</strong> ${currency} ${amount}</p>
        <p><strong>Customer email:</strong> ${customerEmail || 'n/a'}</p>
        <p><strong>Stripe session:</strong> ${session.id}</p>`
     );
   }
+}
+
+function parseCart(raw) {
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
